@@ -13,6 +13,33 @@ do
 
     tar -xf "$filename"
     rm "$filename"
+    cd $(echo "$filename" | cut -d '_' -f 3)
 
+    find -maxdepth 1 -type f -not -name "*.gz" -delete
+
+    papers=($(ls *.gz))
+    for paper in "${papers[@]}"
+    do
+        folder=$(echo "$paper" | cut -d '.' -f 1)
+        mkdir "$folder"
+        mv "$paper" "$folder"
+        cd "$folder"
+
+        tar -xf "$paper" 2>/dev/null
+        if [ $? -eq 0 ]; then
+            echo "Extracted $paper with tar -xf"
+            rm "$paper"
+        else
+            echo "Failed extracting $paper with tar -xf"
+            gunzip "$paper" 2>/dev/null
+            if [ $? -eq 0 ]; then
+                echo "EXTRACTED $paper with gunzip"
+            else
+                echo "Failed extracting $paper with gunzip"
+                rm "$paper"
+            fi
+        fi
+        cd ..
+    done
     cd ..
 done
