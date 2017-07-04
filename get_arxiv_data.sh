@@ -1,14 +1,15 @@
 #!/usr/bin/bash
 
 s3cmd get 's3://arxiv/src/arXiv_src_manifest.xml' --requester-pays
-mkdir -p out
 mapfile -t filenames < <(grep -oP 'arXiv_.*\.tar' arXiv_src_manifest.xml)
+
+mkdir -p out
+cd out || exit
 
 for filename in "${filenames[@]}"
 do
     echo "$filename"
-    s3cmd get "s3://arxiv/src/$filename" out --requester-pays
-    cd out || exit
+    s3cmd get "s3://arxiv/src/$filename" --requester-pays
 
     tar -xf "$filename"
     rm "$filename"
