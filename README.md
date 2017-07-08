@@ -2,8 +2,8 @@
 Download all arXiv papers
 
 arXiv lets you [bulk download](https://arxiv.org/help/bulk_data_s3) papers from their s3 bucket. This is useful for doing your
-`B I G D A T A` NLP tasks! This script will help you x10 your agile workflow by automating the boring stuff as you transfer
-big data from the cloud. What a paradigm shift!
+`B I G D A T A` NLP tasks as a data science rockstar! This script will help you x10 your agile workflow by automating the 
+boring stuff as you transfer big data from the cloud. What a paradigm shift! Code on, code ninja!
 
 # How to use
 To interact with s3, the script relies on [s3cmd](http://s3tools.org/s3cmd). Download it for your platform and run
