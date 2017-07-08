@@ -9,7 +9,7 @@ boring stuff as you transfer big data from the cloud. What a paradigm shift! Cod
 To interact with s3, the script relies on [s3cmd](http://s3tools.org/s3cmd). Download it for your platform and run
 `s3cmd --configure`. It'll ask for some keys which you can get from somewhere in AWS. Here's [a page that looks like
 documentation for it](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html). It'll ask for some other
-stuff but I just pressed <kbd>enter</kbd> a bunch of times and it worked, so apparently the have some sensible defaults.
+stuff but I just pressed <kbd>enter</kbd> a bunch of times and it worked, so apparently they have some sensible defaults.
 
 ### Clone repository
 `git clone https://github.com/veggiedefender/arXiv_dump`
