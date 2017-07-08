@@ -43,8 +43,8 @@ do
         # output a scary error message if BOTH fail.
         if tar -xf "$paper" 2>/dev/null
         then
-            # clean up the folder
-            rm "$paper"
+            # clean up the folder by removing non .tex files
+            find . -type f -not -name "*.tex" -exec rm -r {} +
         else          
             if gunzip "$paper" 2>/dev/null
             then
@@ -56,7 +56,10 @@ do
                 rm "$paper"
             fi
         fi
-        cd ..
+        cd .. # back to out/$folder
     done
-    cd ..
+
+    # clean out empty directories
+    find . -type d -empty -delete
+    cd .. # back to out/
 done
