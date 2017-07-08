@@ -24,3 +24,7 @@ download each tar, and 15-20 seconds to decompress them. There are 1519 archives
 You'll get a folder `out/` which contains folders numbered `0001`, `0002`, `0003`, etc. Inside each numbered folder are
 folders for each paper, such as `astro-ph0001001`. It'll either have a bunch of files and a `.tex`, or a file with no
 extension that is probably LaTeX formatted, but who really knows?
+
+#### Note:
+Each folder within `out/` is about ~140MB uncompressed and with non `*.tex` files removed. With 1519 archives, they should all
+fit in about ~210GB.
